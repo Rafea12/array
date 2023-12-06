@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // Step 1: Setup a blank array, myWork
+        var myWork = [];
+
+        // Step 2-5: Using a for loop, create a list of 10 objects with alternating true/false status
+        for (var i = 1; i <= 10; i++) {
+            var status = i % 2 === 0; // Use modulo to alternate true/false status
+            var lesson = {
+                name: 'Lesson ' + i,
+                status: status
+            };
+
+            // Step 5: Push the objects to the myWork array
+            myWork.push(lesson);
+        }
+
+        // Step 6: Output the array to the console
+        console.log(myWork);
+
+        // Display the array on the HTML page
+        var outputContainer = document.createElement('div');
+        outputContainer.innerHTML = '<h2>Lesson Status</h2>';
+
+        myWork.forEach(function(lesson) {
+            var lessonStatus = lesson.status ? 'Running' : 'Not Running';
+            outputContainer.innerHTML += '<p>' + lesson.name + ': ' + lessonStatus + '</p>';
+        });
+
+        document.body.appendChild(outputContainer);
+    </script>
+</body>
+
+</html>
